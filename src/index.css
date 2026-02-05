@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* KrishiSmart AI Design System - Agriculture Theme */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+@layer base {
+  :root {
+    /* Background - Warm cream/off-white for earthy feel */
+    --background: 42 40% 97%;
+    --foreground: 142 30% 15%;
+
+    /* Cards with subtle warmth */
+    --card: 0 0% 100%;
+    --card-foreground: 142 30% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 142 30% 15%;
+
+    /* Primary - Deep forest green */
+    --primary: 142 50% 28%;
+    --primary-foreground: 42 40% 97%;
+
+    /* Secondary - Soft sage green */
+    --secondary: 140 25% 90%;
+    --secondary-foreground: 142 40% 20%;
+
+    /* Muted - Light earth tones */
+    --muted: 45 20% 92%;
+    --muted-foreground: 142 15% 40%;
+
+    /* Accent - Warm golden wheat */
+    --accent: 42 70% 55%;
+    --accent-foreground: 142 30% 15%;
+
+    /* Success - Fresh leaf green */
+    --success: 142 60% 45%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warning - Sunset orange */
+    --warning: 28 85% 55%;
+    --warning-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 142 20% 85%;
+    --input: 142 20% 85%;
+    --ring: 142 50% 28%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar - Deep earthy green */
+    --sidebar-background: 142 45% 18%;
+    --sidebar-foreground: 42 40% 95%;
+    --sidebar-primary: 42 70% 55%;
+    --sidebar-primary-foreground: 142 30% 15%;
+    --sidebar-accent: 142 40% 25%;
+    --sidebar-accent-foreground: 42 40% 95%;
+    --sidebar-border: 142 35% 25%;
+    --sidebar-ring: 42 70% 55%;
+
+    /* Custom Agriculture Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(142 45% 22%) 0%, hsl(142 50% 28%) 50%, hsl(100 40% 35%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(42 40% 98%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(42 70% 55%) 0%, hsl(35 75% 50%) 100%);
+    --gradient-success: linear-gradient(135deg, hsl(142 60% 45%) 0%, hsl(160 55% 40%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(142 30% 15% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(142 30% 15% / 0.1), 0 2px 4px -2px hsl(142 30% 15% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(142 30% 15% / 0.1), 0 4px 6px -4px hsl(142 30% 15% / 0.1);
+    --shadow-glow: 0 0 20px hsl(142 50% 28% / 0.3);
+  }
+
+  .dark {
+    --background: 142 30% 8%;
+    --foreground: 42 40% 95%;
+
+    --card: 142 25% 12%;
+    --card-foreground: 42 40% 95%;
+
+    --popover: 142 25% 12%;
+    --popover-foreground: 42 40% 95%;
+
+    --primary: 142 55% 45%;
+    --primary-foreground: 142 30% 8%;
+
+    --secondary: 142 25% 18%;
+    --secondary-foreground: 42 40% 90%;
+
+    --muted: 142 20% 18%;
+    --muted-foreground: 42 20% 60%;
+
+    --accent: 42 65% 50%;
+    --accent-foreground: 142 30% 8%;
+
+    --success: 142 55% 50%;
+    --success-foreground: 142 30% 8%;
+
+    --warning: 28 80% 50%;
+    --warning-foreground: 142 30% 8%;
+
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 142 20% 22%;
+    --input: 142 20% 22%;
+    --ring: 142 55% 45%;
+
+    --sidebar-background: 142 30% 6%;
+    --sidebar-foreground: 42 40% 95%;
+    --sidebar-primary: 42 65% 50%;
+    --sidebar-primary-foreground: 142 30% 8%;
+    --sidebar-accent: 142 25% 15%;
+    --sidebar-accent-foreground: 42 40% 95%;
+    --sidebar-border: 142 20% 18%;
+    --sidebar-ring: 42 65% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-family: 'Inter', sans-serif;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+
+  .btn-glow {
+    @apply relative overflow-hidden;
+  }
+
+  .btn-glow::after {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-300;
+    background: radial-gradient(circle at center, hsl(var(--primary) / 0.3) 0%, transparent 70%);
+  }
+
+  .btn-glow:hover::after {
+    @apply opacity-100;
+  }
+
+  .gradient-text {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass-card {
+    @apply backdrop-blur-md border;
+    background: hsl(var(--card) / 0.85);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .leaf-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5c0 0-15 10-15 25s15 25 15 25s15-10 15-25S30 5 30 5z' fill='%2322c55e' fill-opacity='0.03'/%3E%3C/svg%3E");
+  }
+}
+
+@layer utilities {
+  .shadow-card {
+    box-shadow: var(--shadow-md);
+  }
+
+  .shadow-card-lg {
+    box-shadow: var(--shadow-lg);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+}
